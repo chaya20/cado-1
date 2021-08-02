@@ -101,14 +101,16 @@ public class ColorSpec extends AppCompatActivity implements TextToSpeech.OnInitL
     public void topGoToRcmd(View v){
         //String colorName = findViewById(R.id.tvName).toString();
         Intent intent = new Intent(this, ColorRcmd.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("object", btTop.getText());
+        intent.putExtra("title", btTop.getText());
+        intent.putExtra("name", tvName.getText());
         startActivity(intent);
     }
 
     public void btmGoToRcmd(View v) {
         //String colorName = findViewById(R.id.tvName).toString();
         Intent intent = new Intent(this, ColorRcmd.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("object", btBottom.getText());
+        intent.putExtra("title", btBottom.getText());
+        intent.putExtra("name", tvName.getText());
         startActivity(intent);
     }
 

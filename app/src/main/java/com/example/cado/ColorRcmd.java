@@ -12,21 +12,22 @@ import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class ColorRcmd extends AppCompatActivity  implements TextToSpeech.OnInitListener {
 
-    private ArrayList<RcmdData>arrayList;
-    private RcmdAdapter mainAdapter;
-    private RecyclerView recyclerView;
-    private LinearLayoutManager linearLayoutManager;
+    ArrayList<RcmdData>arrayList;
+    RcmdAdapter mainAdapter;
+    RecyclerView recyclerView;
+    LinearLayoutManager linearLayoutManager;
 
     TextView tvTitle;
-    private TextToSpeech tts;
+    TextToSpeech tts;
+    Button btOn, btIn, btOp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +38,11 @@ public class ColorRcmd extends AppCompatActivity  implements TextToSpeech.OnInit
         tts = new TextToSpeech(this, this);
 
         Intent intent = getIntent();
-        String object = intent.getStringExtra("object");
+        String colorName = intent.getStringExtra("name");
 
+        String title = intent.getStringExtra("title");
         tvTitle = findViewById(R.id.tvTitle);
-        tvTitle.setText(object);
+        tvTitle.setText(title);
 
         recyclerView=(RecyclerView)findViewById(R.id.rv);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -59,23 +61,41 @@ public class ColorRcmd extends AppCompatActivity  implements TextToSpeech.OnInit
             }
         });
 
-        Button Btn1 = (Button)findViewById(R.id.Btn1);
-        Btn1.setOnClickListener(new View.OnClickListener() {
+        btOn = findViewById(R.id.btOn);
+        btOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RcmdData mainData = new RcmdData(R.drawable.color,"톤온톤","검은색 하의");
+                RcmdData mainData = new RcmdData(withColorChip(colorName),"톤온톤",withColorName(colorName));
                 arrayList.add(mainData);
                 mainAdapter.notifyDataSetChanged();
             }
         });
+    }
 
+    private int withColorChip(String colorName){
+        Toast toast = Toast.makeText(getApplicationContext(),colorName,Toast.LENGTH_SHORT);
+        toast.show();
+
+        if(colorName.equals("노란색")) {
+            return R.drawable.blue;
+        } else {
+            return R.drawable.black;
+        }
+    }
+
+    private String withColorName(String colorName){
+        if(colorName.equals("노란색")) {
+            return "파란색";
+        } else {
+            return "어울리는 색이 없습니다";
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void speakOut() {
         CharSequence text = tvTitle.getText();
         tts.setPitch((float) 0.6);
-        tts.setSpeechRate((float) 0.8);
+        tts.setSpeechRate((float) 0.9);
         tts.speak(text,TextToSpeech.QUEUE_FLUSH,null,"id1");
     }
 

@@ -25,33 +25,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:orientation="horizontal"
-        android:weightSum="8"
-        android:layout_marginBottom="20dp">
+        android:weightSum="8">
 
         <Button
-            android:id="@+id/Btn1"
+            android:id="@+id/btOn"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="2.5"
             android:text="톤온톤"
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/Btn2"
+            android:id="@+id/btIn"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginLeft="20dp"
             android:layout_weight="2.5"
             android:text="톤인톤"
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/Btn3"
+            android:id="@+id/btOp"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginLeft="20dp"
             android:layout_weight="2.5"
             android:text="보색"

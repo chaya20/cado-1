@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:background="#00FFFFFF"
+        android:gravity="center"
+        android:text="빨간색 상의에 어울리는 하의"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:weightSum="8">
+
+        <Button
+            android:id="@+id/btOn"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_weight="2.5"
+            android:text="톤온톤"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btIn"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2.5"
+            android:text="톤인톤"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btOp"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2.5"
+            android:text="보색"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbarFadeDuration="0"
+        android:scrollbarSize="5dp"
+        android:scrollbarThumbVertical="@android:color/darker_gray"
+        android:scrollbars="vertical">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

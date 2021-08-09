@@ -1,7 +1,6 @@
 package com.example.cado;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -100,7 +99,7 @@ public class ColorSpec extends AppCompatActivity implements TextToSpeech.OnInitL
 
     public void topGoToRcmd(View v){
         //String colorName = findViewById(R.id.tvName).toString();
-        Intent intent = new Intent(this, ColorRcmd.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent intent = new Intent(this, ColorRcmdTop.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("title", btTop.getText());
         intent.putExtra("name", tvName.getText());
         startActivity(intent);
@@ -108,7 +107,7 @@ public class ColorSpec extends AppCompatActivity implements TextToSpeech.OnInitL
 
     public void btmGoToRcmd(View v) {
         //String colorName = findViewById(R.id.tvName).toString();
-        Intent intent = new Intent(this, ColorRcmd.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent intent = new Intent(this, ColorRcmdBtm.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("title", btBottom.getText());
         intent.putExtra("name", tvName.getText());
         startActivity(intent);

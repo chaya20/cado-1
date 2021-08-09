@@ -21,9 +21,9 @@
 
         <activity android:name=".ColorSpec"></activity>
 
-        <activity android:name=".ColorRcmd"></activity>
+        <activity android:name=".ColorRcmdTop"></activity>
 
-
+        <activity android:name=".ColorRcmdBtm"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

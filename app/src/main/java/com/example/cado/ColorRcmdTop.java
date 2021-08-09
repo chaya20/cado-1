@@ -18,7 +18,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class ColorRcmd extends AppCompatActivity  implements TextToSpeech.OnInitListener {
+public class ColorRcmdTop extends AppCompatActivity  implements TextToSpeech.OnInitListener {
 
     ArrayList<RcmdData>arrayList;
     RcmdAdapter mainAdapter;
@@ -33,7 +33,7 @@ public class ColorRcmd extends AppCompatActivity  implements TextToSpeech.OnInit
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Theme_Cado);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rcmd);
+        setContentView(R.layout.activity_rcmd_top);
 
         tts = new TextToSpeech(this, this);
 
@@ -57,43 +57,57 @@ public class ColorRcmd extends AppCompatActivity  implements TextToSpeech.OnInit
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                speakOut();
+                speakOut(tvTitle.getText());
             }
         });
+
+        RcmdData tontData = new RcmdData(TonT.withChip_top(colorName),"톤온톤",TonT.withName_top(colorName));
+        arrayList.add(tontData);
+        //mainAdapter.notifyDataSetChanged();
+
+        RcmdData tintData = new RcmdData(TinT.withChip_top(colorName),"톤인톤",TinT.withName_top(colorName));
+        arrayList.add(tintData);
+        //mainAdapter.notifyDataSetChanged();
+
+        RcmdData opstData = new RcmdData(Opst.withChip_top(colorName),"보색",Opst.withName_top(colorName));
+        arrayList.add(opstData);
+        mainAdapter.notifyDataSetChanged();
+
 
         btOn = findViewById(R.id.btOn);
         btOn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                RcmdData mainData = new RcmdData(withColorChip(colorName),"톤온톤",withColorName(colorName));
-                arrayList.add(mainData);
-                mainAdapter.notifyDataSetChanged();
+                CharSequence text = "톤온톤 추천 색은 " + TonT.withName_top(colorName);
+                speakOut(text);
+            }
+        });
+
+        btIn = findViewById(R.id.btIn);
+        btIn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onClick(View v) {
+                CharSequence text = "톤인톤 추천 색은 " + TinT.withName_top(colorName);
+                speakOut(text);
+            }
+        });
+
+        btOp = findViewById(R.id.btOp);
+        btOp.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onClick(View v) {
+                CharSequence text = "보색 추천 색은 " + Opst.withName_top(colorName);
+                speakOut(text);
             }
         });
     }
 
-    private int withColorChip(String colorName){
-        Toast toast = Toast.makeText(getApplicationContext(),colorName,Toast.LENGTH_SHORT);
-        toast.show();
-
-        if(colorName.equals("노란색")) {
-            return R.drawable.blue;
-        } else {
-            return R.drawable.black;
-        }
-    }
-
-    private String withColorName(String colorName){
-        if(colorName.equals("노란색")) {
-            return "파란색";
-        } else {
-            return "어울리는 색이 없습니다";
-        }
-    }
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void speakOut() {
-        CharSequence text = tvTitle.getText();
+    private void speakOut(CharSequence text) {
+        //CharSequence text = tvTitle.getText();
         tts.setPitch((float) 0.6);
         tts.setSpeechRate((float) 0.9);
         tts.speak(text,TextToSpeech.QUEUE_FLUSH,null,"id1");
@@ -115,7 +129,7 @@ public class ColorRcmd extends AppCompatActivity  implements TextToSpeech.OnInit
                 Log.e("TTS", "This Language is not supported");
             } else {
                 //tvTitle.setEnabled(true);
-                speakOut();
+                speakOut(tvTitle.getText());
             }
         } else {
             Log.e("TTS", "Initilization Failed!");

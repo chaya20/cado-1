@@ -10,9 +10,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cado.R;
-import com.example.cado.RcmdData;
-
 import java.util.ArrayList;
 
 public class RcmdAdapter extends RecyclerView.Adapter<RcmdAdapter.CustomViewHolder> {
@@ -30,7 +27,7 @@ public class RcmdAdapter extends RecyclerView.Adapter<RcmdAdapter.CustomViewHold
     @Override
     public RcmdAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tononton_list,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rcmd_list,parent,false);
         CustomViewHolder holder = new CustomViewHolder(view);
 
         return holder;

@@ -59,13 +59,15 @@ public class RcmdAdapter extends RecyclerView.Adapter<RcmdAdapter.CustomViewHold
             }
         });*/
 
+
+
     }
 
     @Override
     public int getItemCount() {
         return (null != arrayList ? arrayList.size():0);
     }
-    /*
+/*
     public void remove(int position){
         try{
             arrayList.remove(position);

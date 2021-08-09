@@ -98,7 +98,7 @@ public class ColorRcmdBtm extends AppCompatActivity  implements TextToSpeech.OnI
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                CharSequence text = "보색 추천 색은 " + Opst.withName_top(colorName);
+                CharSequence text = "보색 추천 색은 " + Opst.withName_btm(colorName);
                 speakOut(text);
             }
         });

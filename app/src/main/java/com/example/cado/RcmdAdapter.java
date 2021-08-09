@@ -40,6 +40,8 @@ public class RcmdAdapter extends RecyclerView.Adapter<RcmdAdapter.CustomViewHold
         holder.tv2.setText(arrayList.get(position).getTv2());
 
         holder.itemView.setTag(position);
+
+        /*
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +57,7 @@ public class RcmdAdapter extends RecyclerView.Adapter<RcmdAdapter.CustomViewHold
 
                 return true;
             }
-        });
+        });*/
 
     }
 
@@ -63,7 +65,7 @@ public class RcmdAdapter extends RecyclerView.Adapter<RcmdAdapter.CustomViewHold
     public int getItemCount() {
         return (null != arrayList ? arrayList.size():0);
     }
-
+    /*
     public void remove(int position){
         try{
             arrayList.remove(position);
@@ -71,7 +73,7 @@ public class RcmdAdapter extends RecyclerView.Adapter<RcmdAdapter.CustomViewHold
         } catch (IndexOutOfBoundsException ex){
             ex.printStackTrace();
         }
-    }
+    }*/
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
 

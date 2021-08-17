@@ -61,15 +61,15 @@ public class ColorRcmdTop extends AppCompatActivity  implements TextToSpeech.OnI
             }
         });
 
-        RcmdData tontData = new RcmdData(TonT.withChip_top(colorName),"톤온톤",TonT.withName_top(colorName));
+        RcmdData tontData = new RcmdData(withTop.neat_chip(colorName),"단정한 코디",withTop.neat_name(colorName));
         arrayList.add(tontData);
         //mainAdapter.notifyDataSetChanged();
 
-        RcmdData tintData = new RcmdData(TinT.withChip_top(colorName),"톤인톤",TinT.withName_top(colorName));
+        RcmdData tintData = new RcmdData(withTop.lively_chip(colorName),"생기 있는 코디",withTop.lively_name(colorName));
         arrayList.add(tintData);
         //mainAdapter.notifyDataSetChanged();
 
-        RcmdData opstData = new RcmdData(Opst.withChip_top(colorName),"보색",Opst.withName_top(colorName));
+        RcmdData opstData = new RcmdData(withTop.point_chip(colorName),"포인트 코디",withTop.point_name(colorName));
         arrayList.add(opstData);
         mainAdapter.notifyDataSetChanged();
 
@@ -79,7 +79,7 @@ public class ColorRcmdTop extends AppCompatActivity  implements TextToSpeech.OnI
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                CharSequence text = "톤온톤 추천 색은 " + TonT.withName_top(colorName);
+                CharSequence text = "단정한 코디는 " + withTop.neat_name(colorName);
                 speakOut(text);
             }
         });
@@ -89,7 +89,7 @@ public class ColorRcmdTop extends AppCompatActivity  implements TextToSpeech.OnI
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                CharSequence text = "톤인톤 추천 색은 " + TinT.withName_top(colorName);
+                CharSequence text = "생기 있는 코디는 " +withTop.lively_name(colorName);
                 speakOut(text);
             }
         });
@@ -99,7 +99,7 @@ public class ColorRcmdTop extends AppCompatActivity  implements TextToSpeech.OnI
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                CharSequence text = "보색 추천 색은 " + Opst.withName_top(colorName);
+                CharSequence text = "포인트 코디는 " + withTop.point_name(colorName);
                 speakOut(text);
             }
         });

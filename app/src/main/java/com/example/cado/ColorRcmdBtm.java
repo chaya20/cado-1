@@ -60,25 +60,25 @@ public class ColorRcmdBtm extends AppCompatActivity  implements TextToSpeech.OnI
                 speakOut(tvTitle.getText());
             }
         });
-        RcmdData tontData = new RcmdData(TonT.withChip_btm(colorName),"톤온톤",TonT.withName_btm(colorName));
+
+        RcmdData tontData = new RcmdData(withBottom.neat_chip(colorName),"단정한 코디",withBottom.neat_name(colorName));
         arrayList.add(tontData);
         //mainAdapter.notifyDataSetChanged();
 
-        RcmdData tintData = new RcmdData(TinT.withChip_btm(colorName),"톤인톤",TinT.withName_btm(colorName));
+        RcmdData tintData = new RcmdData(withBottom.lively_chip(colorName),"생기 있는 코디",withBottom.lively_name(colorName));
         arrayList.add(tintData);
         //mainAdapter.notifyDataSetChanged();
 
-        RcmdData opstData = new RcmdData(Opst.withChip_btm(colorName),"보색",Opst.withName_btm(colorName));
+        RcmdData opstData = new RcmdData(withBottom.point_chip(colorName),"포인트 코디",withBottom.point_name(colorName));
         arrayList.add(opstData);
         mainAdapter.notifyDataSetChanged();
-
 
         btOn = findViewById(R.id.btOn);
         btOn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                CharSequence text = "톤온톤 추천 색은 " + TonT.withName_btm(colorName);
+                CharSequence text = "단정한 코디는 " + withBottom.neat_name(colorName);
                 speakOut(text);
             }
         });
@@ -88,7 +88,7 @@ public class ColorRcmdBtm extends AppCompatActivity  implements TextToSpeech.OnI
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                CharSequence text = "톤인톤 추천 색은 " + TinT.withName_btm(colorName);
+                CharSequence text = "생기 있는 코디는 " + withBottom.lively_name(colorName);
                 speakOut(text);
             }
         });
@@ -98,7 +98,7 @@ public class ColorRcmdBtm extends AppCompatActivity  implements TextToSpeech.OnI
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                CharSequence text = "보색 추천 색은 " + Opst.withName_btm(colorName);
+                CharSequence text = "포인트 코디는 " + withBottom.point_name(colorName);
                 speakOut(text);
             }
         });
